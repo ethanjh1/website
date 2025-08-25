@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Garden - Ethan Huang Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hidden Terminal (Easter Egg) -->
+    <div id="secret-terminal" class="secret-terminal">
+        <div class="terminal-header">
+            <span class="terminal-title">🌱 Digital Garden Terminal v1.0</span>
+            <button class="terminal-close" onclick="closeTerminal()">×</button>
+        </div>
+        <div class="terminal-content">
+            <div class="terminal-output">
+                <div class="terminal-line">Welcome to Ethan Huang's Digital Garden Terminal!</div>
+                <div class="terminal-line">Type 'help' for available commands.</div>
+                <div class="terminal-line">Achievement unlocked: Konami Code Master! 🎉</div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">garden@digital:~$ </span>
+                <input type="text" id="terminal-input" placeholder="Enter command..." autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Toast -->
+    <div id="achievement-toast" class="achievement-toast">
+        <div class="achievement-content">
+            <i class="fas fa-trophy"></i>
+            <span id="achievement-text">Achievement Unlocked!</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="garden-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-seedling"></i>
+                <span>Ethan Huang</span>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to</span>
+                    <span class="title-line highlight">Ethan Huang's Digital Garden</span>
+                </h1>
+                <p class="hero-subtitle">Exploring the intersection of code, creativity, and curiosity</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('about')">
+                        <i class="fas fa-seedling"></i>
+                        Explore Garden
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('projects')">
+                        <i class="fas fa-code"></i>
+                        View Projects
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-elements">
+                    <div class="floating-element" data-tooltip="Click me! 🌱">🌱</div>
+                    <div class="floating-element" data-tooltip="Hidden message! 🌿">🌿</div>
+                    <div class="floating-element" data-tooltip="Easter egg! 🌸">🌸</div>
+                    <div class="floating-element" data-tooltip="Try hovering! 🍃">🍃</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About Ethan</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Ethan Huang, a Computer Science student at Cornell University cultivating knowledge in programming, AI, and data science. Like a gardener tending to plants, I nurture my skills in software engineering, machine learning, and problem-solving.</p>
+                    <p>Outside the lab and classroom, I contribute to robotics projects, develop full-stack apps, and mentor fellow students as a teaching assistant.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Years Coding</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects Built</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Languages & Tools</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>CS Student</h3>
+                        <p>Passionate about building innovative digital solutions</p>
+                        <div class="profile-tags">
+                            <span class="tag">Problem Solver</span>
+                            <span class="tag">Innovator</span>
+                            <span class="tag">Team Leader</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title">Garden Tools & Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="Python">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                            <div class="skill-level" data-level="90"></div>
+                        </div>
+                        <div class="skill-item" data-skill="JavaScript">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                            <div class="skill-level" data-level="85"></div>
+                        </div>
+                        <div class="skill-item" data-skill="Java">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                            <div class="skill-level" data-level="80"></div>
+                        </div>
+                        <div class="skill-item" data-skill="C/C++">
+                            <i class="fas fa-code"></i>
+                            <span>C/C++</span>
+                            <div class="skill-level" data-level="75"></div>
+                        </div>
+                        <div class="skill-item" data-skill="OCaml">
+                            <i class="fas fa-code"></i>
+                            <span>OCaml</span>
+                            <div class="skill-level" data-level="70"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">Technologies & Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="React">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                            <div class="skill-level" data-level="80"></div>
+                        </div>
+                        <div class="skill-item" data-skill="Node.js">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                            <div class="skill-level" data-level="75"></div>
+                        </div>
+                        <div class="skill-item" data-skill="Flask/FastAPI">
+                            <i class="fas fa-flask"></i>
+                            <span>Flask/FastAPI</span>
+                            <div class="skill-level" data-level="75"></div>
+                        </div>
+                        <div class="skill-item" data-skill="Supabase/PostgreSQL">
+                            <i class="fas fa-database"></i>
+                            <span>Supabase/PostgreSQL</span>
+                            <div class="skill-level" data-level="75"></div>
+                        </div>
+                        <div class="skill-item" data-skill="AWS/Docker">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS & Docker</span>
+                            <div class="skill-level" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title">Garden Creations</h2>
+            <div class="projects-grid">
+                <div class="project-card" data-project="kdramaalert">
+                    <div class="project-image">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>KDramaAlert</h3>
+                        <p>Full-stack recommendation system suggesting Korean dramas using metadata from 1500+ shows and SVD-based latent features.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">SVD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="camlmon">
+                    <div class="project-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Camlmon Showdown</h3>
+                        <p>OCaml-based Pokémon-inspired game with CSV data handling and 100% test coverage using OUnit.</p>
+                        <div class="project-tags">
+                            <span class="tag">OCaml</span>
+                            <span class="tag">OUnit</span>
+                            <span class="tag">Game Dev</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project="marketplace">
+                    <div class="project-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mobile Marketplace App</h3>
+                        <p>Backend with Flask, SQLAlchemy, and AWS S3 integration for scalable mobile marketplace platform.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <h2 class="section-title">Growth Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Software Team Lead | Software Engineer</h3>
+                        <p class="timeline-company">Cornell Nexus Project Team</p>
+                        <p class="timeline-period">Sep 2024 – Present</p>
+                        <p>Leading 16-person software team building an autonomous beach-cleaning robot with ROS, navigation, and CV integration.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Software Engineer Intern</h3>
+                        <p class="timeline-company">Lonesyte</p>
+                        <p class="timeline-period">May 2025 – Aug 2025</p>
+                        <p>Built cross-platform mobile app with React Native, implemented recommendation system using CLIP and Whisper embeddings.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Teaching Assistant | Consultant Lead</h3>
+                        <p class="timeline-company">Cornell Bowers CIS</p>
+                        <p class="timeline-period">Jan 2024 – Present</p>
+                        <p>Led lab sections, provided student support for Python courses, and promoted engagement in CS learning.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Research Intern</h3>
+                        <p class="timeline-company">University of Pennsylvania</p>
+                        <p class="timeline-period">Jun 2024 – Aug 2024</p>
+                        <p>Developed CNN model for ECG analysis achieving 83% balanced accuracy across six conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Connect with Ethan</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>484-757-2104</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ejh249@cornell.edu</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/ethanhuang5</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/ethanjh1</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <span>Digital Garden</span>
+                </div>
+                <p class="footer-text">Cultivating digital solutions, one line of code at a time.</p>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ethan Huang. Made with <i class="fas fa-heart"></i> and lots of coffee.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden Easter Egg Elements -->
+    <div id="konami-indicator" class="konami-indicator">
+        <span>Konami Code: ↑↑↓↓←→←→BA</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
